@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--
+This is gem-engserv-lvm, this portal is including semantic ui css and js.
+-->
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> 
+
+        <!-- Site Properties -->
+        <title>GEM-HelpDesk</title>
+        <!--<link rel="stylesheet" type="text/css" href="common/style.css">-->
+        <script src="help_desk.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://www.semantic-ui.com/dist/semantic.min.css">
+        <script src="http://www.semantic-ui.com/dist/semantic.min.js"></script>
+
+
+    </head>
+    <style>
+        .gem-ui-hd-hdr
+        {
+            padding: 0px 20px;
+        }
+        .gem-ui-float-btn
+        {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            text-align: center;
+            z-index: 99;
+        }
+        .gem-ui-float-btn > div
+        {
+            width: 55px;
+            cursor: pointer;
+            height: 55px;
+            border-radius: 50%;
+            border: 1px solid;
+            background: #198f35;
+            color: #fff;
+
+            transition: 0.2s;
+        }
+        .gem-ui-float-btn > div:hover
+        {
+            /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6) !important;*/
+            box-shadow: 0 4px 8px 0 #f0be2c !important;
+            opacity: 0.8;
+        }
+
+        .gem-ui-float-btn > div >i
+        {
+            position: relative;
+            top: 16px;
+            left: 2px;
+        }
+        .gem-ui-search
+        {
+            padding: 10px 0px;
+        }
+    </style>
+
+    <body>
+
+        <!--COMMON HEADER HEADER LINKED HEAR BEGIN--> 
+        <div id="header"></div> 
+        <!--COMMON HEADER HEADER LINKED HEAR END-->
+        <br> <br>
+        <div class="gem-ui-hd-pge gem-ui-padd-top">
+            <div class="gem-ui-hd-hdr">
+                <div class="ui container">
+                    <div class="ui stackable two column grid">
+                        <div class="column">
+                            <h2 class="ui header">
+                                <img src="common/media/icons/report.png">
+                                <div class="content">Tickets
+                                    <div class="sub header">Check out our Tickets</div>
+                                </div>
+                            </h2>  
+                        </div>
+                        <div class="column right aligned">
+                            <div class="ui compact menu">
+                                <a class="item" onClick="ticketInbox('.gem-total-tick')">
+                                    <i class="icon mail"></i>Total Tickets
+                                    <div class="floating ui red label">22</div>
+                                </a>
+                                <a class="item" onClick="ticketInbox('.gem-pending-tick')">
+                                    <i class="icon mail"></i>Pending Tickets
+                                    <div class="floating ui teal label">02</div>
+                                </a>
+                                <a class="item" onClick="ticketInbox('.gem-forme-tick')">
+                                    <i class="icon mail"></i>My Tickets Box
+                                    <div class="floating ui green label">20</div>
+                                </a>
+                            </div>
+                            
+                            <div class="gem-ui-search">
+                                <div class="ui action input">
+                                    <input type="text" placeholder="Search...">
+                                    <button class="ui icon button">
+                                        <i class="search icon"></i>
+                                    </button>
+                                </div> 
+                                <span style="padding-left: 77px;">
+                                <button class="negative ui button" id="create-ticket">Create Ticket</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="gem-ui-hd-pge-cont gem-ui-padd-2">
+
+                <!--TOTAL TICKET TABLE LIST START HEAR-->
+                <div class="ui segment gem-total-tick">
+                    <table class="ui  table">
+                        <thead class="ui inverted table">
+                            <tr>
+                                <th>Sr</th>
+                                <th>Date</th>
+                                <th>Contact No</th>
+                                <th>Work Location</th>
+                                <th>Issue on Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Mumbai Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic green button">Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>25-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Mumbai Vashi</td>
+                                <td>15-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>25-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic green button">Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>27-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Nerul Vashi</td>
+                                <td>17-01-2018</td>
+                                <td>LVM</td>
+                                <td>Very big issues please solve it</td>
+                                <td>25-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic red button">De-Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Chembur Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic red button">De-Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+                <!--PENDING  TICKET TABLE LIST START HEAR-->
+                <div class="ui segment gem-pending-tick">
+                    <table class="ui  table">
+                        <thead class="ui inverted table">
+                            <tr>
+                                <th>Sr</th>
+                                <th>Date</th>
+                                <th>Contact No</th>
+                                <th>Work Location</th>
+                                <th>Issue on Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Mumbai Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic green button">Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>25-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Mumbai Vashi</td>
+                                <td>15-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>25-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic blue button">Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>27-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Nerul Vashi</td>
+                                <td>17-01-2018</td>
+                                <td>LVM</td>
+                                <td>Very big issues please solve it</td>
+                                <td>25-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic black button">De-Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Chembur Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic yellow button">De-Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+                <!--FOR ME TICKET TABLE LIST START HEAR-->
+                <div class="ui segment gem-forme-tick">
+                    <table class="ui  table">
+                        <thead class="ui inverted table">
+                            <tr>
+                                <th>Sr</th>
+                                <th>Date</th>
+                                <th>Contact No</th>
+                                <th>Work Location</th>
+                                <th>Issue on Date</th>
+                                <th>Category</th>
+                                <th>Description</th>
+                                <th>Last Update</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Mumbai Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic yellow button">Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>4</td>
+                                <td>20-02-2018</td>
+                                <td>9773342218</td>
+                                <td>Chembur Vashi</td>
+                                <td>12-01-2018</td>
+                                <td>HR</td>
+                                <td>Very big issues please solve it</td>
+                                <td>20-02-2018</td>
+                                <td><div class="ui one buttons">
+                                        <div class="ui basic blue button">De-Active</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <!--F START LOAT BTN FOR CREATE PROJECT-->
+<!--        <div class="gem-ui-float-btn" id="create-ticket">
+            <div id="float-btn">
+                <i class=" large pencil icon"></i>
+            </div>
+        </div>-->
+        <!--END FLOAT BTN FOR CREATE PROJECT-->
+
+
+
+        <!--START CREATE TICKET MODAL POP UP FOR TICKET CREATE-->
+        <div class="gem-ui-hd-tic-create">
+            <div class="ui small modal create-ticket">
+                <i class="close icon"></i>
+                <div class="header">Create Ticket</div>
+
+                <div class="ui content">
+                    <div class="ui stackable two column grid">
+                        <div class="column">
+                            <div class="ui form">
+                                <div class="field">
+                                    <label>Select Category</label>
+                                    <select class="ui fluid dropdown">
+                                        <option value="">Select Category</option>
+                                        <option value="1">LVM</option>
+                                        <option value="0">HR</option>
+                                        <option value="0">Accountant</option>
+                                        <option value="0">PAY Roll</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui form">
+                                <div class="field">
+                                    <div class="field">
+                                        <label>Issue Arised Date</label>
+                                        <div class="ui fluid input">
+                                            <input type="date" placeholder="Select Holiday Date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui stackable two column grid">
+                        <div class="column">
+                            <div class="ui form">
+                                <div class="field">
+                                    <label>Contact Number</label>
+                                    <div class="ui fluid input">
+                                        <input type="text" placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui form">
+                                <div class="field">
+                                    <label>Location</label>
+                                    <div class="ui fluid input">
+                                        <input type="text" placeholder="Optional">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Please describe your grievance in detail and how you would like this to be resolved</label>
+                            <div class="ui  input">
+                                <input type="textarea" placeholder="Description">
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br><br>
+                    <div style="border:none; text-align: center;">
+                        <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                        <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!--END CREATE TICKET MODAL POP UP FOR TICKET CREATE-->
+
+
+    </body>
+
+</html>

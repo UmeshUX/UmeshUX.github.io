@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>QC-Admin Portal</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+       
+        <link rel="stylesheet" type="text/css" href="http://www.semantic-ui.com/dist/semantic.min.css">
+        <script src="http://www.semantic-ui.com/dist/semantic.min.js"></script>
+    </head>
+    <style>
+        /*LOGIN PAGE CSS START HEAR*/
+        .gem-ui-login-pge
+        {
+            /*border: 1px solid yellow;*/
+            padding-top: 100px; 
+        }
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus
+        {
+            outline: none;
+        }
+        .gem-ui-login
+        {
+            /*border: 1px solid red;*/
+            
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 24px 0 rgba(0, 0, 0, 0.5);
+        }
+        .gem-ui-login-hdr
+        {
+            /*border: 1px solid red;*/
+            background: #f0be2c; 
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 30px;
+            color: #fff;
+            font-size: 2.425rem;
+            font-weight: 500;
+            font-family: Sailec-Medium,Helvetica,sans-serif;
+        }
+        .gem-ui-login-cont
+        {
+            text-align: center;
+            /*border: 1px solid;*/
+            height: 300px;
+            padding: 30px;
+        }
+
+        .gem-ui-login-cont > div
+        {
+            margin: 10px 0px; 
+        }
+        .gem-ui-login-cont > div input
+        {
+            height: 37px;
+            width: 90%;
+            margin: auto;
+            padding: 0px 20px;
+            border-radius: 20px;
+            border: none;
+            background: #E0E0E0;
+            
+            font-family: National-Book,Helvetica,sans-serif;
+            font-size: 1.00rem;
+            color: #666;
+
+        }
+        ::placeholder
+        {
+            color: #989898;
+        }
+        .gem-ui-login-cont > div:nth-child(3)
+        {
+            text-align: right;
+            padding: 0px 20px;
+            color: green;
+        }
+        .login-btn
+        {
+            padding: 15px 0px;
+        }
+        .login-btn button
+        {
+            width: 220px;
+            border-radius: 20px !important;
+            background: #f0be2c !important;
+            color: #fff !important;
+        }
+        .gem-ui-login-ftr
+        {
+            text-align: center;
+            padding: 5px 0px 15px 0px;
+            font-family: National-Book,Helvetica,sans-serif;
+        }
+        .gem-ui-login-ftr> div:first-child
+        {
+            color: grey;
+        }
+         .gem-ui-login-ftr> div:last-child
+        {
+            color: green;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+
+    </style>
+
+    <body>
+        <div class="gem-ui-login-pge">
+            <div class="gem-ui-login">
+                <div class="gem-ui-login-hdr">LVM Portal</div>
+                <div class="gem-ui-login-cont">
+                    <div><input type="text" placeholder="User Name"></div>
+                    <div><input type="password" placeholder="User Password"></div>
+                    <div>Forgor Username / Password?</div>
+
+                    <div class="login-btn">
+                        <button class="ui button" id="login-btn">Login</button>
+                    </div>
+                </div>
+                
+                <div class="gem-ui-login-ftr">
+                <!--<div>Don't have an Account</div>
+                    <div> SIGN UP NOW</div>-->
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+    <script src="http://www.semantic-ui.com/dist/semantic.min.js"></script>
+    
+    <script>
+        $(document).ready(function()
+        {
+           $("#login-btn").on("click", function()
+           {
+               window.location.href = "http://localhost:8383/gem-engserv-lvm/index.html"; 
+           }); 
+        });
+    </script>
+    
+</html>
+

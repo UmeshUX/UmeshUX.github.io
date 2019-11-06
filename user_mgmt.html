@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<!--
+This is gem-engserv-lvm, this portal is including semantic ui css and js.
+-->
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> 
+
+        <!-- Site Properties -->
+        <title>User Management</title>
+        <!--<link rel="stylesheet" type="text/css" href="common/style.css">-->
+        <script src="user_mgmt.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://www.semantic-ui.com/dist/semantic.min.css">
+        <script src="http://www.semantic-ui.com/dist/semantic.min.js"></script>
+
+
+    </head>
+    <style>
+        .green
+        {
+            color: #21ba45;
+            font-weight: bold;
+        }
+        .red
+        {
+            color: red;
+            font-weight: bold;
+
+        }
+        .gem-ui-hd-hdr
+        {
+            padding: 0px 20px;
+        }
+        .gem-ui-hd-pge-cont
+        {
+            padding: 40px 10px 10px 10px;
+        }
+        .gem-ui-mc-hdr
+        {
+            /*border: 1px solid red;*/
+            padding: 10px 50px;
+            width: 500px;
+            margin: auto;
+        }
+        .gem-cont-hdr
+        {
+            padding: 15px 10px;
+            color: #fff;
+            background: #333;
+            border-radius: 5px;
+            margin: 5px 0px 20px 0px;
+        }
+        /*CSS FOR CHECK BOX*/
+
+        [type="checkbox"]:not(:checked),
+        [type="checkbox"]:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        [type="checkbox"]:not(:checked) + label,
+        [type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 1.95em;
+            cursor: pointer;
+        }
+        [type="checkbox"]:not(:checked) + label:before,
+        [type="checkbox"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 1.1em; height: 1.1em;
+            border: 2px solid #4d8c58;
+        }
+        [type="checkbox"]:not(:checked) + label:after,
+        [type="checkbox"]:checked + label:after {
+            content: '✔';
+            position: absolute;
+            top: -0.2em;
+            left: 0.1em;
+            font-size: 1.5em;
+            line-height: 0.8;
+            color: #f0be2c;
+        }
+        [type="checkbox"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(1);
+        }
+
+
+
+        /*END OF COMMN CSS FOR CHECK BOX*/
+
+
+    </style>
+
+    <body>
+
+        <!--COMMON HEADER HEADER LINKED HEAR BEGIN--> 
+        <div id="header"></div> 
+        <!--COMMON HEADER HEADER LINKED HEAR END-->
+        <br> <br>
+        <div class="gem-ui-hd-pge gem-ui-padd-top">
+            <div class="gem-ui-hd-hdr">
+                <div class="ui container">
+                    <div class="ui stackable two column grid">
+                        <div class="column">
+                            <h2 class="ui header">
+                                <img src="common/media/icons/team.png">
+                                <div class="content">User Management
+                                    <div class="sub header">User Details And Updates</div>
+                                </div>
+                            </h2>  
+                        </div>
+                        <div class="column right aligned">
+                            <div class="gem-ui-checkbox">
+                                <span><input type="checkbox" id="5" value=""/><label for="5"></label></span>
+                                <span>Email</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gem-ui-hd-pge-cont">
+                <div class="ui top attached tabular menu">
+                    <a class="active item" data-tab="first">Add User</a>
+                    <a class="item" data-tab="second">Make Changes</a>
+                </div>
+
+                <!--THIS IS THE PART OF THE FIRST TAB START HEAR-->
+                <div class="ui bottom attached active tab segment" style="min-height:400px;" data-tab="first">
+
+                    <div class="gem-cont-hdr">
+                        <div class="ui stackable two column grid">
+                            <div class="column">
+                                <div style="padding:6px;"><h3>List of User</h3></div>
+                            </div>
+                            <div class="column right aligned">
+                                <div class="ui small icon input">
+                                    <input type="text" placeholder="Search...">
+                                    <i class="circular search link icon"></i>
+                                </div>
+                                <span style="padding:0px 10px">
+                                    <button class="positive ui button" id='add-inp-user'>Add User</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui container" style="height:400px; overflow: auto; overflow-x: hidden;">
+                        <table class="ui table center aligned">
+                            <thead class="ui table">
+                                <tr class="ui center aligned">
+                                    <th>Sr</th>
+                                    <th>User Name</th>
+                                    <th>User Id</th>
+                                    <th>User Email-Id</th>
+                                    <th>User Status</th>
+                                    <th>Designation</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td >Umesh Yadav</td>
+                                    <td>GEM0015</td>
+                                    <td>umesh97733@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Web Developer</td>
+                                    <td>
+                                        <button class="ui mini positive basic button">Update</button> 
+                                        <!--<button class="ui mini red basic button">De-Active</button>-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td >Rohan Lad</td>
+                                    <td>GEM0045</td>
+                                    <td>rohanlad23@gmail.com</td>
+                                    <td class="red">De-Active</td>
+                                    <td>Java Developer</td>
+                                    <td>
+                                        <button class="ui mini negative basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td >Mehul Lad</td>
+                                    <td>GEM0055</td>
+                                    <td>mehulk1122@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Java Developer</td>
+                                    <td><button class="ui mini positive basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td >Umesh Yadav</td>
+                                    <td>GEM0015</td>
+                                    <td>umesh97733@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Web Developer</td>
+                                    <td>
+                                        <button class="ui mini positive basic button">Update</button> 
+                                        <!--<button class="ui mini red basic button">De-Active</button>-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td >Rohan Lad</td>
+                                    <td>GEM0045</td>
+                                    <td>rohanlad23@gmail.com</td>
+                                    <td class="red">De-Active</td>
+                                    <td>Java Developer</td>
+                                    <td>
+                                        <button class="ui mini negative basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td >Mehul Lad</td>
+                                    <td>GEM0055</td>
+                                    <td>mehulk1122@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Java Developer</td>
+                                    <td><button class="ui mini positive basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td >Umesh Yadav</td>
+                                    <td>GEM0015</td>
+                                    <td>umesh97733@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Web Developer</td>
+                                    <td>
+                                        <button class="ui mini positive basic button">Update</button> 
+                                        <!--<button class="ui mini red basic button">De-Active</button>-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td >Rohan Lad</td>
+                                    <td>GEM0045</td>
+                                    <td>rohanlad23@gmail.com</td>
+                                    <td class="red">De-Active</td>
+                                    <td>Java Developer</td>
+                                    <td>
+                                        <button class="ui mini negative basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td >Mehul Lad</td>
+                                    <td>GEM0055</td>
+                                    <td>mehulk1122@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Java Developer</td>
+                                    <td><button class="ui mini positive basic button">Update</button></td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td >Umesh Yadav</td>
+                                    <td>GEM0015</td>
+                                    <td>umesh97733@gmail.com</td>
+                                    <td class="green">Active</td>
+                                    <td>Web Developer</td>
+                                    <td><button class="ui mini positive basic button">Update</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <!--THIS IS THE END OF THE FIRST TAB-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--MAKE CHANGES START FROM HEAR        THIS IS THE PART OF SECOND TAB -->
+                <div class="ui bottom attached tab segment"  data-tab="second">
+                    <div style="background:goldenrod;">
+                        <div class="gem-ui-mc-hdr">
+                            <select class="ui fluid dropdown" id="selectData">
+                                <option value="0">Select For Change</option>
+<!--                                <option value=".gem-dept-share">Department Share</option>-->
+                                <option value=".gem-dept-head">Department Head</option>
+                                <option value=".gem-pro-mgr">Project Manager</option>
+                                <option value=".gem-emp-super">Supervisor</option>
+                                <option value=".gem-user-leave">Employee Leave Balance</option>
+                                <option value=".gem-user-leave-structure">Leave Structure</option>
+                                <option value=".gem-user-pass-reset">Reset Password</option>
+                                <option value="8">User Status</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="gem-ui-mc-cont" style="height:445px; overflow: auto; overflow-x: hidden;">
+
+                        <!--START OF PASSWORD RESET SECTION FOR USER-->
+                        <div class="gem-user-pass-reset">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3> Reset User Password</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui small icon input">
+                                            <input type="text" placeholder="User Name">
+                                            <i class="circular search link icon"></i>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui container">
+                                <table class="ui table center aligned">
+                                    <thead class="ui table">
+                                        <tr class="ui center aligned">
+                                            <th>Sr</th>
+                                            <th>User Name</th>
+                                            <th>User Id</th>
+                                            <th>User Email-Id</th>
+                                            <th>User Status</th>
+                                            <th>Designation</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td >Umesh Yadav</td>
+                                            <td>GEM0015</td>
+                                            <td>umesh97733@gmail.com</td>
+                                            <td class="green">Active</td>
+                                            <td>Web Developer</td>
+                                            <td>
+                                                <button class="ui mini positive basic button">Reset</button> 
+                                                <!--<button class="ui mini red basic button">De-Active</button>-->
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>2</td>
+                                            <td >Rohan Lad</td>
+                                            <td>GEM0045</td>
+                                            <td>rohanlad23@gmail.com</td>
+                                            <td class="red">De-Active</td>
+                                            <td>Java Developer</td>
+                                            <td>
+                                                <button class="ui mini positive basic button">Reset</button></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Mehul Lad</td>
+                                            <td>GEM0055</td>
+                                            <td>mehulk1122@gmail.com</td>
+                                            <td class="green">Active</td>
+                                            <td>Java Developer</td>
+                                            <td><button class="ui mini positive basic button">Reset</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td >Umesh Yadav</td>
+                                            <td>GEM0015</td>
+                                            <td>umesh97733@gmail.com</td>
+                                            <td class="green">Active</td>
+                                            <td>Web Developer</td>
+                                            <td><button class="ui mini positive basic button">Reset</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--END OF USER PASSWORD RESET SECTION FOR ALL USER-->
+
+
+                        <!--START OF USER LEAVE STRUCTURE FOR MALE AND FEMALE  SECTION-->
+                        <div class="gem-user-leave-structure">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3> Employee Annual Leave Structure</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui toggle red checkbox" style="padding:10px 0px;">
+                                            <input type="checkbox" tabindex="0" class="hidden" checked="checked">
+                                            <label style="color: #fff !important;">For Male</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui container gem-ui-padd">
+                                <div class="inline field">
+
+                                </div>
+                                <div class="ui stackable three column grid">
+                                    <div class="column">
+                                        <div class="ui form">
+                                            <div class="field">
+                                                <label>Leaves Credited Per Month</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number" >
+                                                </div>
+                                            </div> 
+                                            <br>
+                                            <div class="field">
+                                                <label>Maximum Maternity Leave Request</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number">
+                                                </div>
+                                            </div> 
+
+                                        </div>
+                                    </div>
+
+                                    <div class="column">
+                                        <div class="ui form">
+                                            <div class="field">
+                                                <label>Maximum Maternity Leaves In Days</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number">
+                                                </div>
+                                            </div> 
+                                            <br>
+                                            <div class="field">
+                                                <label>Probation Period In Days</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number">
+                                                </div>
+                                            </div> 
+
+                                        </div>
+                                    </div>
+
+                                    <div class="column">
+                                        <div class="ui form">
+                                            <div class="field">
+                                                <label>Leave To Be Credited After Probation Period</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number">
+                                                </div>
+                                            </div> 
+
+                                            <br>
+                                            <div class="field">
+                                                <label>Maximum Carry Forwarded Leaves In Days</label>
+                                                <div class="ui fluid input">
+                                                    <input type="number">
+                                                </div>
+                                            </div> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ui text container center aligned gem-ui-padd">
+                                    <div class="ui positive button">Update</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--END OF USER LEAVE STRUCTURE FOR MALE AND FEMALE  SECTION-->
+
+
+
+
+                        <!--START OF USER LEAVE SECTION-->
+                        <div class="gem-user-leave">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3>List of User Leave</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui small icon input">
+                                            <input type="text" placeholder="Search...">
+                                            <i class="circular search link icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="ui table center aligned">
+                                <thead class="ui table">
+                                    <tr class="ui center aligned">
+                                        <th>User Name</th>
+                                        <th>Balance Leave</th>
+                                        <th>Credit Leave</th>
+                                        <th>Leave Type</th>
+                                        <th>Date</th>
+                                        <th>Reason</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>20 July, 2018 to 26 July, 2018</td>
+                                        <td>Attend Birthday party</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">3</td>
+                                        <td>Medical Leave</td>
+                                        <td>11 Aug, 2018 to 21 Aug, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr class="negative">
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>24 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Holiday</td>
+                                        <td class="red"><i class="icon close"></i> Reject</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">1</td>
+                                        <td>Medical Leave</td>
+                                        <td>21 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>20 July, 2018 to 26 July, 2018</td>
+                                        <td>Attend Birthday party</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">3</td>
+                                        <td>Medical Leave</td>
+                                        <td>11 Aug, 2018 to 21 Aug, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr class="negative">
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>24 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Holiday</td>
+                                        <td class="red"><i class="icon close"></i> Reject</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">1</td>
+                                        <td>Medical Leave</td>
+                                        <td>21 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>20 July, 2018 to 26 July, 2018</td>
+                                        <td>Attend Birthday party</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">3</td>
+                                        <td>Medical Leave</td>
+                                        <td>11 Aug, 2018 to 21 Aug, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+                                    <tr class="negative">
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">6</td>
+                                        <td>Casual Leave</td>
+                                        <td>24 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Holiday</td>
+                                        <td class="red"><i class="icon close"></i> Reject</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Umesh Yadav</td>
+                                        <td class="green">5</td>
+                                        <td class="red">1</td>
+                                        <td>Medical Leave</td>
+                                        <td>21 July, 2018 to 26 July, 2018</td>
+                                        <td>Going to Family Function</td>
+                                        <td class="green"><i class="icon checkmark"></i> Approved</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--END OF USER LEAVE SECTION-->
+
+
+
+
+
+
+                        <!--START OF EMPLOYEE AND  SUPERVISOR  MANAGER SECTION-->
+                        <div class="gem-emp-super">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3>List of Employee and Supervisor</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui small icon input">
+                                            <input type="text" placeholder="Search...">
+                                            <i class="circular search link icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui stackable two column grid">
+                                <div class="column">
+                                    <table class="ui  table center aligned">
+                                        <thead class="ui  grey table">
+                                            <tr class="ui center aligned">
+                                                <th>Sr</th>
+                                                <th>Employee</th>
+                                                <th>Superior</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Umesh Yadav</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-emp-s-wiser">Change</button> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Rohan Lad</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-emp-s-wiser">Change</button> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Mehul Kadam</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-pro-mgmt">Change</button> 
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="column">
+                                    <table class="ui  table center aligned">
+                                        <thead class="ui grey table">
+                                            <tr class="ui center aligned">
+                                                <th>Sr</th>
+                                                <th>Employee</th>
+                                                <th>Superior</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Umesh Yadav</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-emp-s-wiser">Change</button> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Rohan Lad</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-emp-s-wiser">Change</button> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Mehul Kadam</td>
+                                                <td>Dhawal</td>
+                                                <td>
+                                                    <button class="ui mini positive basic button change-emp-s-wiser">Change</button> 
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--END EMPLOYEE AND  SUPERVISOR MANAGER SECTION-->
+
+
+
+                        <!--START OF PROJECT MANAGER SECTION-->
+                        <div class="gem-pro-mgr">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3>List of Project Manager</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui small icon input">
+                                            <input type="text" placeholder="Search...">
+                                            <i class="circular search link icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <table class="ui table center aligned">
+                                <thead class="ui table">
+                                    <tr class="ui center aligned">
+                                        <th>Sr</th>
+                                        <th>Current Project</th>
+                                        <th>Project Manager</th>
+                                        <th>Change Project Manager</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Telesuprecon</td>
+                                        <td>Rohan Lad</td>
+                                        <td>
+                                            <button class="ui mini positive basic button change-pro-mgmt">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>BD</td>
+                                        <td>Mohan </td>
+                                        <td>
+                                            <button class="ui mini positive basic button change-pro-mgmt">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Yamuna River Bridge</td>
+                                        <td>Dhawal</td>
+                                        <td>
+                                            <button class="ui mini positive basic button change-pro-mgmt">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Golden Spring</td>
+                                        <td>Raje Sir</td>
+                                        <td>
+                                            <button class="ui mini positive basic button change-pro-mgmt">Change</button> 
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--END OF PROJECT MANAGER SECTION-->
+
+
+                        <!--START OF DEPARTMENT HEAD SECTION-->
+                        <div class="gem-dept-head">
+                            <div class="gem-cont-hdr">
+                                <div class="ui stackable two column grid">
+                                    <div class="column">
+                                        <div style="padding:6px;"><h3>Change Head Of Department</h3></div>
+                                    </div>
+                                    <div class="column right aligned">
+                                        <div class="ui small icon input">
+                                            <input type="text" placeholder="Search...">
+                                            <i class="circular search link icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <table class="ui table center aligned">
+                                <thead class="ui table">
+                                    <tr class="ui center aligned">
+                                        <th>Sr</th>
+                                        <th>Department</th>
+                                        <th>Department Head</th>
+                                        <th>Change Department Head</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>ITSI</td>
+                                        <td>Rohan Lad</td>
+                                        <td>
+                                            <button class="ui mini positive basic button gem-cnge-btn">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>REBAR</td>
+                                        <td>Mohan </td>
+                                        <td>
+                                            <button class="ui mini positive basic button gem-cnge-btn">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>QTO</td>
+                                        <td>Dhawal</td>
+                                        <td>
+                                            <button class="ui mini positive basic button gem-cnge-btn">Change</button> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>CONTRACTS</td>
+                                        <td>Raje Sir</td>
+                                        <td>
+                                            <button class="ui mini positive basic button gem-cnge-btn">Change</button> 
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--END OF DEPARTMENT HEAD SECTION-->
+
+
+                    </div>
+                </div>
+                <!--MAKE CHANGES  SECTION END START FROM HEAR-->
+
+
+            </div>
+        </div>
+
+
+       
+
+
+        <!--START CHANGE PROJECT MANAGEMENT MODAL POP UP FOR PROJECT MANAGER CREATE-->
+        <div class="ui mini modal change-pro-mgmt-sec">
+            <i class="close icon"></i>
+            <div class="header">Change Project Manager</div>
+
+            <div class="ui content">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Current Project Manager</label>
+                        <div class="ui fluid input">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="field">
+                        <label>Select New Project Manager</label>
+                        <div class="ui fluid input">
+                            <select class="ui fluid dropdown">
+                                <option value="">Select Project Manager</option>
+                                <option value="1">Project Manager Share</option>
+                                <option value="1">Project Manager Head</option>
+                                <option value="1">Project Manager</option>
+                                <option value="1">Supervisor</option>
+                                <option value="1">Employee Leave Balance</option>
+                                <option value="1">Leave Structure</option>
+                                <option value="1">Reset Password</option>
+                                <option value="1">User Status</option>
+                            </select> 
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div style="border:none; text-align: center;">
+                    <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                    <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                </div>
+
+            </div>
+        </div>
+        <!--END CHANGE PROJECT MANAGEMENT MODAL POP UP FOR PROJECT MANAGER CREATE-->
+
+
+        <!--START CHANGE DEPARTMENT HEAD MODAL POP UP FOR TICKET CREATE-->
+        <div class="ui mini modal change-dept">
+            <i class="close icon"></i>
+            <div class="header">Change Department Head</div>
+
+            <div class="ui content">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Current Department</label>
+                        <div class="ui fluid input">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="field">
+                        <label>Select Department Head</label>
+                        <div class="ui fluid input">
+                            <select class="ui fluid dropdown">
+                                <option value="">Select Department Head</option>
+                                <option value="1">Department Share</option>
+                                <option value="1">Department Head</option>
+                                <option value="1">Project Manager</option>
+                                <option value="1">Supervisor</option>
+                                <option value="1">Employee Leave Balance</option>
+                                <option value="1">Leave Structure</option>
+                                <option value="1">Reset Password</option>
+                                <option value="1">User Status</option>
+                            </select> 
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div style="border:none; text-align: center;">
+                    <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                    <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                </div>
+
+            </div>
+        </div>
+        <!--END CHANGE DEPARTMENT HEAD MODAL POP UP FOR TICKET CREATE-->
+
+
+
+
+        <!--START CHANGE EMPLOYEE'S  MODAL SUPERVISOR-->
+        <div class="ui mini modal change-emp-super">
+            <i class="close icon"></i>
+            <div class="header">Change Employee Supervisor</div>
+
+            <div class="ui content">
+                <div class="ui form">
+                    <div class="field">
+                        <label> Employee</label>
+                        <div class="ui fluid input">
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="field">
+                        <label>Select New Employee Supervisor</label>
+                        <div class="ui fluid input">
+                            <select class="ui fluid dropdown">
+                                <option value="">Select Department Head</option>
+                                <option value="1">Department Share</option>
+                                <option value="1">Department Head</option>
+                                <option value="1">Project Manager</option>
+                                <option value="1">Supervisor</option>
+                                <option value="1">Employee Leave Balance</option>
+                                <option value="1">Leave Structure</option>
+                                <option value="1">Reset Password</option>
+                                <option value="1">User Status</option>
+                            </select> 
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br>
+                <div style="border:none; text-align: center;">
+                    <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                    <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                </div>
+
+            </div>
+        </div>
+        <!--END CHANGE EMPLOYEE'S  SUPERVISOR-->
+
+
+
+        <!--START ADD USER MODAL INPUT FORM WITHE DETAILS -->
+        <div class="ui fullscreen modal add-user-form">
+            <i class="close icon"></i>
+            <div class="header">Add And Update User</div>
+
+            <div class="ui content">
+                <div class="ui styled fluid accordion">
+                    <div class="active title" style="background: #666; color: #fff;">
+                        <h3>
+                            <i class="dropdown icon"></i>
+                            GEM Data
+                        </h3>
+                    </div>
+                    <div class="active content" style="padding:20px 10px;">
+                        <div class="ui stackable two column grid">
+                            <div class="column">
+                                <div class="ui form">
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Employee Code</label>
+                                            <input type="text" placeholder="Employee Code">
+                                        </div>
+                                        <div class="field">
+                                            <label>Reporting To</label>
+                                            <div class="ui fluid input">
+                                                <select class="ui fluid dropdown">
+                                                    <option value="">Reporting to</option>
+                                                    <option value="1">Department Share</option>
+                                                    <option value="1">Department Head</option>
+                                                    <option value="1">Project Manager</option>
+                                                    <option value="1">Supervisor</option>
+                                                    <option value="1">Employee Leave Balance</option>
+                                                    <option value="1">Leave Structure</option>
+                                                    <option value="1">Reset Password</option>
+                                                    <option value="1">User Status</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Contact Number</label>
+                                            <input type="text" placeholder="Contact Number">
+                                        </div>
+                                        <div class="field">
+                                            <label>Email Address</label>
+                                            <input type="text"placeholder="Email Address">
+                                        </div>
+                                    </div>
+
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Designation</label>
+                                            <input type="text" placeholder="Designation">
+                                        </div>
+                                        <div class="field">
+                                            <label>Department</label>
+                                            <div class="ui fluid input">
+                                                <select class="ui fluid dropdown">
+                                                    <option value="">Reporting to</option>
+                                                    <option value="1">Department Share</option>
+                                                    <option value="1">Department Head</option>
+                                                    <option value="1">Project Manager</option>
+                                                    <option value="1">Supervisor</option>
+                                                    <option value="1">Employee Leave Balance</option>
+                                                    <option value="1">Leave Structure</option>
+                                                    <option value="1">Reset Password</option>
+                                                    <option value="1">User Status</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>  
+                            </div>
+
+                            <div class="column">
+                                <div class='ui form'>
+
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Date Of Joining</label>
+                                            <input type="text"placeholder="Date Of Joining">
+                                        </div>
+                                        <div class="field">
+                                            <label>HO Employee</label>
+                                            <div class="inline fields" style="padding:2px 0px;">
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="employee" checked="" tabindex="1" class="hidden">
+                                                        <label>Yes</label>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="employee" tabindex="1" class="hidden">
+                                                        <label>No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Man Hour Rate</label>
+                                            <input type="text" placeholder="Man Hour Rate">
+                                        </div>
+                                        <div class="field">
+                                            <label>Date Of Joining</label>
+                                            <input type="text"placeholder="Date Of Joining">
+                                        </div>
+                                    </div>
+
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Holiday Template</label>
+                                            <div class="ui fluid input">
+                                                <select class="ui fluid dropdown">
+                                                    <option value="">Reporting to</option>
+                                                    <option value="1">Department Share</option>
+                                                    <option value="1">Department Head</option>
+                                                    <option value="1">Project Manager</option>
+                                                    <option value="1">Supervisor</option>
+                                                    <option value="1">Employee Leave Balance</option>
+                                                    <option value="1">Leave Structure</option>
+                                                    <option value="1">Reset Password</option>
+                                                    <option value="1">User Status</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label>Work Location</label>
+                                            <input type="text"placeholder="Work Location">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div> 
+
+                    </div>
+                    <div class="title" style="background: #666; color: #fff;">
+                        <h3>
+                            <i class="dropdown icon"></i>
+                            Employee Data
+                        </h3>
+                    </div>
+                    <div class="content" style="padding:20px 10px; ">
+                        <div class="ui stackable two column grid">
+                            <div class="column">
+                                <div class="ui form">
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>First Name</label>
+                                            <input type="text" name="shipping[first-name]" placeholder="First Name">
+                                        </div>
+                                        <div class="field">
+                                            <label>Last Name</label>
+                                            <input type="text" name="shipping[last-name]" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Date Of Birth</label>
+                                            <input type="text" placeholder="Date Of Birth">
+                                        </div>
+                                        <div class="field">
+                                            <label>Number Of Children</label>
+                                            <input type="text"placeholder="Number Of Children">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="ui form">
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <label>Gender</label>
+                                            <div class="inline fields" style="padding:2px 0px;">
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="gender" checked="" tabindex="0" class="hidden">
+                                                        <label>Male</label>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="gender" tabindex="0" class="hidden">
+                                                        <label>Female</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="field">
+                                            <label>Marital Status</label>
+                                            <div class="inline fields" style="padding:2px 0px;">
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="mstatus" checked="" tabindex="2" class="hidden">
+                                                        <label>Married</label>
+                                                    </div>
+                                                </div>
+                                                <div class="field">
+                                                    <div class="ui radio checkbox">
+                                                        <input type="radio" name="mstatus" tabindex="2" class="hidden">
+                                                        <label>Un-Married</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Address</label>
+                                        <textarea rows="2" placeholder="Enter User Address"></textarea>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title" style="background: #666; color: #fff;">
+                        <h3><i class="dropdown icon"></i>Schedule Working Day's For Week</h3>
+                    </div>
+                    <div class="content" style="padding:20px 10px; ">
+                        <table class="ui  celled definition  table">
+                            <thead>
+                                <tr style="text-align:center;">
+                                    <th>Week / Day</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                    <th>Sunday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="text-align:center;">
+                                    <td>Week 1</td>
+                                    <td>
+                                        <span><input type="checkbox" id="0" value=""/><label for="0"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="1" value=""/><label for="1"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="2" value=""/><label for="2"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="3" value=""/><label for="3"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="4" value=""/><label for="4"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="6" value=""/><label for="6"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="7" value=""/><label for="7"></label></span>
+                                    </td>
+                                </tr>
+
+                                <tr style="text-align:center;">
+                                    <td>Week 2</td>
+                                    <td>
+                                        <span><input type="checkbox" id="8" value=""/><label for="8"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="9" value=""/><label for="9"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="10" value=""/><label for="10"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="11" value=""/><label for="11"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="12" value=""/><label for="12"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="13" value=""/><label for="13"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="14" value=""/><label for="14"></label></span>
+                                    </td>
+                                </tr>
+                                <tr style="text-align:center;">
+                                    <td>Week 3</td>
+                                    <td>
+                                        <span><input type="checkbox" id="15" value=""/><label for="15"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="16" value=""/><label for="16"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="17" value=""/><label for="17"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="18" value=""/><label for="18"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="19" value=""/><label for="19"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="20" value=""/><label for="20"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="21" value=""/><label for="21"></label></span>
+                                    </td>
+                                </tr>
+                                <tr style="text-align:center;">
+                                    <td>Week 4</td>
+                                    <td>
+                                        <span><input type="checkbox" id="22" value=""/><label for="22"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="23" value=""/><label for="23"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="24" value=""/><label for="24"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="25" value=""/><label for="26"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="26" value=""/><label for="26"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="27" value=""/><label for="27"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="28" value=""/><label for="28"></label></span>
+                                    </td>
+                                </tr>
+                                <tr style="text-align:center;">
+                                    <td>Week 5</td>
+                                    <td>
+                                        <span><input type="checkbox" id="29" value=""/><label for="29"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="30" value=""/><label for="30"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="31" value=""/><label for="31"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="32" value=""/><label for="32"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="33" value=""/><label for="33"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="34" value=""/><label for="34"></label></span>
+                                    </td>
+                                    <td>
+                                        <span><input type="checkbox" id="35" value=""/><label for="35"></label></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>  
+                    </div>
+                    <style>
+                        
+                        .gem-ui-permission label:first-child
+                        {
+                            /*border: 1px solid red;*/
+                            width: 300px !important;
+                            font-size: 17px !important;
+                            color: grey !important;
+                        }
+                    </style>
+                    <div class="title" style="background: #666; color: #fff;">
+                        <h3>
+                            <i class="dropdown icon"></i>
+                            Permission Setting
+                        </h3>
+                    </div>
+                    <div class="content gem-ui-permission">
+                        <div style="padding:20px 0px; ">
+                            <div class="ui stackable three column grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="inline fields">
+                                            <label for="prms">Display All Project</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="inline fields">
+                                            <label for="prms">Super Admin</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inline fields">
+                                            <label for="prms">Add New Project</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inline fields">
+                                            <label for="prms">Overheads</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="inline fields">
+                                            <label for="prms">Project Setting</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="inline fields">
+                                            <label for="prms">Add Invoice</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inline fields">
+                                            <label for="prms">Approvals</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inline fields">
+                                            <label for="prms">Add Holidays</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="inline fields">
+                                            <label for="prms">Add Work Order</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="inline fields">
+                                            <label for="prms">Project Summary</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="inline fields">
+                                            <label for="prms">Gem User Settings</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inline fields">
+                                            <label for="prms">Add New User</label>
+                                            <div class="field">
+                                                <div class="ui toggle checkbox">
+                                                    <input type="checkbox" tabindex="0" class="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!--END ADD USER MODAL INPUT FORM WITHE DETAILS -->
+
+
+    </body>
+
+</html>

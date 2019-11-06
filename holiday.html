@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> 
+
+
+
+
+        <!-- Site Properties -->
+        <title>Holiday</title>
+        <!--<link rel="stylesheet" type="text/css" href="common/style.css">-->
+        <script src="holiday.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://www.semantic-ui.com/dist/semantic.min.css">
+        <script src="http://www.semantic-ui.com/dist/semantic.min.js"></script>
+
+
+    </head>
+    <style>
+        .green
+        {
+            color: green;
+        }
+        .red
+        {
+            color: red;
+        }
+    </style>
+
+    <body>
+
+        <!--COMMON HEADER HEADER LINKED HEAR BEGIN--> 
+        <div id="header"></div> 
+        <!--COMMON HEADER HEADER LINKED HEAR END-->
+
+        <div class="gem-ui-hld-pge gem-ui-padd-top">
+
+            <div class="gem-ui-tab-sec gem-ui-padd-2" style="background: aliceblue;">
+                <div class="ui text container">
+                    <div class="ui pointing secondary menu gem-ui-center">
+                        <a class="item active" data-tab="first">Add Holiday</a>
+                        <a class="item" data-tab="second">Create Holiday Templates</a>
+                        <a class="item " data-tab="third">Add Optional Holiday</a>
+                    </div>
+                    <br><br>
+
+                    <div class="ui bottom attached tab active" data-tab="first">
+
+                        <!--<div class="gem-ui-create-user">-->
+
+                        <div class="ui content">
+                            <div class="ui stackable two column grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Select Holiday Day</label>
+                                            <select class="ui fluid dropdown">
+                                                <option value="">Select Holiday Day</option>
+                                                <option value="1">Holi</option>
+                                                <option value="0">Diwali</option>
+                                                <option value="0">E-id</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <div class="field">
+                                                <label>Select Holiday Date</label>
+                                                <div class="ui fluid input">
+                                                    <input type="date" placeholder="Select Holiday Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui stackable two column grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Holiday Title</label>
+                                            <div class="ui fluid input">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Holiday Inactive</label>
+
+                                            <div class="ui fitted slider checkbox">
+                                                <input type="checkbox"> <label></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="ui form">
+                                <div class="field">
+                                    <label>Holiday Description</label>
+                                    <div class="ui fluid input">
+                                        <input type="textarea" placeholder="Holiday Description">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div style="border:none; text-align: center;">
+                                <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                                <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                            </div>
+
+                        </div>
+
+                        <!--</div>-->
+                    </div>
+
+
+
+                    <div class="ui bottom attached tab" data-tab="second">
+                        <div class="ui stackable two column grid">
+                            <div class="column">
+                                <div class="ui form">
+                                    <div class="field">
+                                        <label>Template Title</label>
+                                        <div class="ui fluid input">
+                                            <input type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="ui form">
+                                    <div class="field">
+                                        <label>Select Template</label>
+                                        <select class="ui fluid dropdown">
+                                            <option value="">Select Template </option>
+                                            <option value="1">Template 1</option>
+                                            <option value="0">Template 2</option>
+                                            <option value="0">Template 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="column">
+                                <div class="ui form">
+                                    <div class="field">
+                                        <label>Select Holiday Day</label>
+                                        <select class="ui fluid dropdown">
+                                            <option value="">Select Holiday Day</option>
+                                            <option value="1">Holi</option>
+                                            <option value="0">Diwali</option>
+                                            <option value="0">E-id</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div style="border:none; text-align: center;">
+                            <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                            <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                        </div>
+                    </div>  
+                    <div class="ui bottom attached tab" data-tab="third">
+                        <div class="ui content">
+                            <div class="ui stackable two column grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Select Holiday Day</label>
+                                            <select class="ui fluid dropdown">
+                                                <option value="">Select Holiday Day</option>
+                                                <option value="1">Holi</option>
+                                                <option value="0">Diwali</option>
+                                                <option value="0">E-id</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <div class="field">
+                                                <label>Select Holiday Date</label>
+                                                <div class="ui fluid input">
+                                                    <input type="date" placeholder="Select Holiday Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ui stackable two column grid">
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Holiday Title</label>
+                                            <div class="ui fluid input">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>Holiday Inactive</label>
+
+                                            <div class="ui fitted slider checkbox">
+                                                <input type="checkbox"> <label></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="ui form">
+                                <div class="field">
+                                    <label>Holiday Description</label>
+                                    <div class="ui fluid input">
+                                        <input type="textarea" placeholder="Holiday Description">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div style="border:none; text-align: center;">
+                                <div class="ui positive labeled icon button">Save<i class="save icon"></i></div>
+                                <div class="ui negative labeled icon button">Reset<i class="cancel icon"></i></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="ui container gem-ui-padd-2">
+            <table class="ui  table">
+                <thead class="ui inverted table">
+                    <tr>
+                        <th>Sr</th>
+                        <th>Day</th>
+                        <th>Date</th>
+                        <th>Holiday Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Friday</td>
+                        <td>January 26, 2018</td>
+                        <td>Republic Day</td>
+                        <td class="icons-pointer"> 
+                            <i class="large green pencil alternate icon"></i>
+                            <i class="large red trash alternate icon"></i>
+                        </td>
+                    </tr>
+                    <tr class="red">
+                        <td>2</td>
+                        <td>Friday</td>
+                        <td>March 30, 2018</td>
+                        <td>Good Friday</td>
+                        <td class="icons-pointer"> 
+                            <i class="large green pencil alternate icon"></i>
+                            <i class="large red trash alternate icon"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Monday</td>
+                        <td>April 30, 2018</td>
+                        <td>Buddha Purnima</td>
+                        <td class="icons-pointer"> 
+                            <i class="large green pencil alternate icon"></i>
+                            <i class="large red trash alternate icon"></i>
+                        </td>
+                    </tr>
+                    <tr class="green">
+                        <td>4</td>
+                        <td>Saturday</td>
+                        <td>June 16, 2018</td>
+                        <td>Id-Ul-Fitr</td>
+                        <td class="icons-pointer"> 
+                            <i class="large green pencil alternate icon"></i>
+                            <i class="large red trash alternate icon"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Wednesday</td>
+                        <td>August 15, 2018</td>
+                        <td>Independence Day</td>
+                        <td class="icons-pointer"> 
+                            <i class="large green pencil alternate icon"></i>
+                            <i class="large red trash alternate icon"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+       
+
+
+    </body>
+
+
+</html>
